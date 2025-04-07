@@ -1,147 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ferramentas de criação com inteligência artificial gratuitas." />
-  <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, jade.ia, ferramentas gratuitas" />
-  <meta name="author" content="DIGITAL BUSSINESS">
-  <title>jade.ia - Ferramentas IA para Criação de Conteúdo</title>
-  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <meta name="description" content="Jade.ia - Ferramentas de inteligência artificial para criação de conteúdo." />
+  <meta name="keywords" content="inteligência artificial, jade, ferramentas AI, criação de conteúdo" />
+  <meta name="author" content="DIGITAL BUSSINESS" />
+  <title>Jade.ia - Ferramentas de Criação com IA</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f4f4f8, #eaeaea);
+      background: linear-gradient(to bottom right, #f4f1f8, #e3e6f0);
       color: #333;
     }
     header {
-      background-color: #fff;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: linear-gradient(to right, #8e9eab, #eef2f3);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0;
-      font-size: 1.5rem;
-      color: #8b5cf6;
+      font-size: 2.5rem;
+      color: #4c4c6d;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      gap: 1rem;
     }
     nav a {
-      margin-left: 1.5rem;
       text-decoration: none;
-      color: #555;
+      padding: 0.8rem 1.5rem;
+      background: #d1d8ec;
+      border-radius: 2rem;
+      color: #333;
+      transition: all 0.3s ease;
     }
     nav a:hover {
-      color: #8b5cf6;
+      background: #bfc8e6;
     }
     main {
       padding: 2rem;
-      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .tools-grid {
+    .tool-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
-    .tool {
-      background-color: #fff;
+    .tool-card {
+      background: white;
       padding: 1.5rem;
       border-radius: 1.5rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .tool:hover {
-      transform: translateY(-5px);
+    .tool-card h2 {
+      font-size: 1.3rem;
+      color: #555;
     }
-    footer {
-      margin-top: 3rem;
-      padding: 2rem;
-      background-color: #fff;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #8b5cf6;
+    .tool-card button {
+      background-color: #8a97c2;
       color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+      margin-top: 1rem;
       cursor: pointer;
-      display: none;
+      transition: background 0.3s ease;
+    }
+    .tool-card button:hover {
+      background-color: #6c7bad;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #8a97c2;
+      color: white;
+      padding: 0.5rem 0.8rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>jade.ia</h1>
+    <h1>Jade.ia</h1>
     <nav>
       <a href="#">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
-      <a href="#politica">Política</a>
+      <a href="#politica">Política de Privacidade</a>
     </nav>
   </header>
 
   <main>
-    <h2>Ferramentas de Criação com Inteligência Artificial</h2>
-    <p>Escolha entre múltiplas opções em cada categoria.</p>
-    <div class="tools-grid">
-      <div class="tool">Gerador de Imagens (3 APIs)</div>
-      <div class="tool">Gerador de Textos (3 APIs)</div>
-      <div class="tool">Conversor de Voz (3 APIs)</div>
-      <div class="tool">Gerador de Vídeo IA (3 APIs)</div>
-      <div class="tool">Editor de Imagem IA (3 APIs)</div>
-      <div class="tool">Assistente de Código (3 APIs)</div>
+    <div class="tool-section">
+      <div class="tool-card">
+        <h2>Gerador de Texto</h2>
+        <button onclick="window.open('https://tool1a.com')">Usar ferramenta</button>
+      </div>
+      <div class="tool-card">
+        <h2>Criação de Imagens com IA</h2>
+        <button onclick="window.open('https://tool2a.com')">Usar ferramenta</button>
+      </div>
+      <div class="tool-card">
+        <h2>Conversor de Voz</h2>
+        <button onclick="window.open('https://tool3a.com')">Usar ferramenta</button>
+      </div>
     </div>
   </main>
 
   <footer>
-    <div id="sobre">
-      <h3>Sobre Nós</h3>
-      <p>jade.ia é um projeto da DIGITAL BUSSINESS com o objetivo de democratizar o acesso a ferramentas baseadas em IA para todos que desejam criar conteúdo com qualidade e facilidade.</p>
-    </div>
-    <div id="contato">
-      <h3>Contato</h3>
-      <form method="POST" action="mailto:digitalbussiness331@gmail.com">
-        <input type="text" name="nome" placeholder="Seu nome" required><br>
-        <input type="email" name="email" placeholder="Seu e-mail" required><br>
-        <input type="text" name="assunto" placeholder="Assunto" required><br>
-        <textarea name="mensagem" placeholder="Digite sua mensagem" rows="4" required></textarea><br>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-    <div id="politica">
-      <h3>Política de Privacidade e Termos de Uso</h3>
-      <p>Respeitamos sua privacidade. Todas as ferramentas seguem diretrizes seguras e transparentes. Nenhum dado é armazenado por nosso site.</p>
-    </div>
-    <p>&copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.</p>
+    <p>&copy; 2025 DIGITAL BUSSINESS - Todos os direitos reservados.</p>
   </footer>
 
-  <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Topo</button>
+  <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</div>
 
-  <script>
-    const btn = document.getElementById("scrollTopBtn");
-    window.onscroll = () => {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
-    };
-  </script>
+  <!-- Scripts Monetag -->
+  <script src="https://example.com/script9177371.js"></script>
+  <script src="https://example.com/script9177372.js"></script>
+  <script src="https://example.com/script9177373.js"></script>
+  <script src="https://example.com/script9177374.js"></script>
+  <script src="https://example.com/script9177375.js"></script>
 
-  <!-- Scripts da Monetag -->
-  <script src="https://cuty.io/js/adsbycutyio.js"></script>
-  <script>
-    var ad_idzone = "9177371";
-    var ad_width = "300";
-    var ad_height = "250";
-  </script>
 </body>
+
 </html>
