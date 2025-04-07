@@ -1,165 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Converta vídeos do YouTube para MP3/MP4 gratuitamente com o conversor da DIGITAL BUSSINESS. Compatível com Android e iOS." />
-  <meta name="keywords" content="YouTube MP3, YouTube MP4, conversor de vídeo, baixar áudio YouTube, baixar vídeo YouTube" />
-  <meta name="author" content="DIGITAL BUSSINESS" />
-  <title>Conversor YouTube MP3 e MP4 - DIGITAL BUSSINESS</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  <meta name="description" content="Ferramentas de criação com inteligência artificial gratuitas." />
+  <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, jade.ia, ferramentas gratuitas" />
+  <meta name="author" content="DIGITAL BUSSINESS">
+  <title>jade.ia - Ferramentas IA para Criação de Conteúdo</title>
+  <link rel="icon" type="image/png" href="/favicon.ico" />
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f0f0f5, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f4f4f8, #eaeaea);
       color: #333;
-      scroll-behavior: smooth;
     }
     header {
-      background: linear-gradient(to right, #dcdcdc, #f9f9f9);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background-color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
-      color: #444;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 10px;
+      font-size: 1.5rem;
+      color: #8b5cf6;
     }
     nav a {
+      margin-left: 1.5rem;
       text-decoration: none;
-      color: #666;
-      font-weight: 500;
+      color: #555;
     }
     nav a:hover {
-      color: #000;
+      color: #8b5cf6;
     }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+    main {
+      padding: 2rem;
+      text-align: center;
     }
-    section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      color: #222;
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
-    section p {
-      font-size: 1rem;
-      line-height: 1.6;
+    .tool {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
     }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .form-group button {
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    .tool:hover {
+      transform: translateY(-5px);
     }
     footer {
+      margin-top: 3rem;
+      padding: 2rem;
+      background-color: #fff;
       text-align: center;
-      padding: 20px;
       font-size: 0.9rem;
-      color: #888;
     }
-    #topBtn {
+    #scrollTopBtn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #333;
+      bottom: 30px;
+      right: 30px;
+      background-color: #8b5cf6;
       color: white;
       border: none;
-      padding: 10px;
-      border-radius: 50%;
+      padding: 10px 15px;
+      border-radius: 10px;
       cursor: pointer;
+      display: none;
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>DIGITAL BUSSINESS - Conversor YouTube</h1>
+    <h1>jade.ia</h1>
     <nav>
+      <a href="#">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
-      <a href="#privacidade">Política</a>
+      <a href="#politica">Política</a>
     </nav>
   </header>
 
-  <section id="conversor">
-    <h2>Conversor de Vídeos YouTube</h2>
-    <p>Insira a URL do vídeo do YouTube para converter em MP3 ou MP4:</p>
-    <!-- Campo de entrada e opções com múltiplos serviços (exemplo estático) -->
-    <input type="text" placeholder="Cole o link do vídeo aqui..." />
-    <div style="margin-top: 15px;">
-      <button onclick="window.open('https://y2mate.is', '_blank')">Opção 1</button>
-      <button onclick="window.open('https://yt1s.ltd', '_blank')">Opção 2</button>
-      <button onclick="window.open('https://savemp3.app', '_blank')">Opção 3</button>
+  <main>
+    <h2>Ferramentas de Criação com Inteligência Artificial</h2>
+    <p>Escolha entre múltiplas opções em cada categoria.</p>
+    <div class="tools-grid">
+      <div class="tool">Gerador de Imagens (3 APIs)</div>
+      <div class="tool">Gerador de Textos (3 APIs)</div>
+      <div class="tool">Conversor de Voz (3 APIs)</div>
+      <div class="tool">Gerador de Vídeo IA (3 APIs)</div>
+      <div class="tool">Editor de Imagem IA (3 APIs)</div>
+      <div class="tool">Assistente de Código (3 APIs)</div>
     </div>
-  </section>
-
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Somos a <strong>DIGITAL BUSSINESS</strong>, dedicados a entregar ferramentas online eficientes para facilitar sua vida digital. Nosso conversor permite baixar vídeos e áudios com qualidade, rapidez e sem complicações. Criamos soluções pensando na praticidade e acessibilidade para todos os usuários.</p>
-  </section>
-
-  <section id="contato">
-    <h2>Fale Conosco</h2>
-    <form action="mailto:digitalbussiness331@gmail.com" method="post" enctype="text/plain">
-      <div class="form-group">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Seu e-mail" required />
-      </div>
-      <div class="form-group">
-        <input type="text" name="assunto" placeholder="Assunto" required />
-      </div>
-      <div class="form-group">
-        <textarea name="mensagem" rows="4" placeholder="Sua mensagem..." required></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit">Enviar</button>
-      </div>
-    </form>
-  </section>
-
-  <section id="privacidade">
-    <h2>Política de Privacidade / Termos de Uso</h2>
-    <p>Nosso site respeita a privacidade dos usuários. Não armazenamos dados pessoais sem consentimento, e utilizamos cookies apenas para melhorar a experiência de navegação. Ao usar nosso site, você concorda com nossos termos.</p>
-  </section>
+  </main>
 
   <footer>
-    &copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.
+    <div id="sobre">
+      <h3>Sobre Nós</h3>
+      <p>jade.ia é um projeto da DIGITAL BUSSINESS com o objetivo de democratizar o acesso a ferramentas baseadas em IA para todos que desejam criar conteúdo com qualidade e facilidade.</p>
+    </div>
+    <div id="contato">
+      <h3>Contato</h3>
+      <form method="POST" action="mailto:digitalbussiness331@gmail.com">
+        <input type="text" name="nome" placeholder="Seu nome" required><br>
+        <input type="email" name="email" placeholder="Seu e-mail" required><br>
+        <input type="text" name="assunto" placeholder="Assunto" required><br>
+        <textarea name="mensagem" placeholder="Digite sua mensagem" rows="4" required></textarea><br>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    <div id="politica">
+      <h3>Política de Privacidade e Termos de Uso</h3>
+      <p>Respeitamos sua privacidade. Todas as ferramentas seguem diretrizes seguras e transparentes. Nenhum dado é armazenado por nosso site.</p>
+    </div>
+    <p>&copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.</p>
   </footer>
 
-  <button id="topBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+  <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Topo</button>
+
+  <script>
+    const btn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+  </script>
 
   <!-- Scripts da Monetag -->
-  <script src="https://example.com/script-9177371.js"></script>
-  <script src="https://example.com/script-9177372.js"></script>
-  <script src="https://example.com/script-9177373.js"></script>
-  <script src="https://example.com/script-9177374.js"></script>
-  <script src="https://example.com/script-9177375.js"></script>
+  <script src="https://cuty.io/js/adsbycutyio.js"></script>
+  <script>
+    var ad_idzone = "9177371";
+    var ad_width = "300";
+    var ad_height = "250";
+  </script>
 </body>
-
 </html>
