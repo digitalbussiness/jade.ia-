@@ -1,82 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jade.ia - Inteligência Artificial para Criação de Conteúdo</title>
-  <meta name="description" content="Jade.ia é sua parceira de inteligência artificial para criar, transformar e explorar ideias com facilidade e criatividade." />
-  <meta name="keywords" content="inteligência artificial, criação de conteúdo, ferramentas IA, jade.ia, ai content tools" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Jade.ia - Ferramentas de inteligência artificial para criação de conteúdo." />
+  <meta name="keywords" content="inteligência artificial, criação de conteúdo, jade.ia, ferramentas AI" />
+  <title>Jade.ia - Inteligência Artificial para Criadores</title>
+  <link rel="icon" href="/favicon.ico" />
   <style>
+    :root {
+      --primary-color: #e0e0f0;
+      --secondary-color: #101010;
+      --accent-color: #5e5e5e;
+      --button-color: #dcdcff;
+      --button-hover: #c0c0ff;
+      --header-gradient-start: #a0c4ff;
+      --header-gradient-end: #ffc6ff;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #87CEEB, #FFC0CB);
-      color: #000000cc;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
     }
+
     header {
-      background-color: #ffffffdd;
-      padding: 1rem;
+      background: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    nav {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
       flex-wrap: wrap;
     }
-    header h1 {
-      font-size: 1.8rem;
-      color: #000000;
-    }
+
     nav a {
-      margin: 0 0.8rem;
+      color: var(--secondary-color);
       text-decoration: none;
-      color: #000000;
-      font-weight: 500;
+      font-weight: bold;
+      transition: color 0.3s;
     }
+
     nav a:hover {
-      color: #ff69b4;
+      color: var(--accent-color);
     }
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
+
+    main {
+      padding: 2rem;
       text-align: center;
     }
-    .animate-fade-in {
-      animation: fadeIn 1s ease-in-out;
+
+    .button {
+      background-color: var(--button-color);
+      border: none;
+      padding: 1rem 2rem;
+      color: var(--secondary-color);
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .button:hover {
+      background-color: var(--button-hover);
     }
+
     footer {
-      background-color: #ffffffcc;
+      background: #1a1a1a;
+      color: var(--accent-color);
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      padding: 1.2rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>jade.ia</h1>
+    <h1>Jade.ia</h1>
+    <p>Olá! Eu sou a Jade.ia, sua assistente de criação com inteligência artificial.</p>
     <nav>
       <a href="#">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
-      <a href="politica.html">Política de Privacidade</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#politica">Política</a>
     </nav>
   </header>
 
-  <section class="container animate-fade-in">
-    <h2 class="text-2xl md:text-3xl font-semibold text-black/80">Olá, eu sou a <span style="color:#ff69b4">Jade.ia</span> 👋</h2>
-    <p class="text-base md:text-lg text-black/60 mt-2">Sua parceira de inteligência artificial para criar, transformar e explorar ideias com facilidade e criatividade.</p>
-  </section>
-
-  <!-- Ferramentas e conteúdo principal continuam aqui -->
+  <main>
+    <h2>Ferramentas Inteligentes</h2>
+    <p>Escolha a ferramenta que deseja usar:</p>
+    <button class="button">Ferramenta 1</button>
+    <button class="button">Ferramenta 2</button>
+    <button class="button">Ferramenta 3</button>
+  </main>
 
   <footer>
-    &copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.
+    <p>&copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.</p>
   </footer>
 </body>
+
 </html>
