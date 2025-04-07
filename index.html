@@ -1,129 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Crie conteúdos incríveis com Jade.ia, sua plataforma de inteligência artificial.">
-  <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, ferramentas de IA">
+  <meta name="description" content="Cria.ai - Ferramentas inteligentes para criadores de conteúdo.">
+  <meta name="keywords" content="inteligência artificial, criador de conteúdo, ferramentas, Cria.ai">
   <meta name="author" content="DIGITAL BUSSINESS">
-  <title>Jade.ia - Criação com Inteligência Artificial</title>
-  <link rel="icon" type="image/png" href="favicon.ico" />
+  <title>Cria.ai - Ferramentas com Inteligência Artificial</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a);
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #1c1c1e, #2f2f31);
+      color: #e0e0e0;
     }
     header {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid gold;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: gold;
-    }
-    nav {
+      background: #121212;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      background-color: #1a1a1a;
-      padding: 10px 0;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     nav a {
-      color: gold;
+      color: #e0e0e0;
+      margin-left: 1rem;
       text-decoration: none;
-      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f4c430;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: #f4c430;
     }
     .tools {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
     }
-    .tool {
-      background-color: #2a2a2a;
-      border: 1px solid #444;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      transition: 0.3s;
+    .tool-card {
+      background: #2a2a2c;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
     }
-    .tool:hover {
-      border-color: gold;
-      transform: scale(1.02);
+    .tool-card:hover {
+      transform: translateY(-5px);
     }
-    .tool h2 {
-      color: #f0c000;
+    .tool-card h2 {
+      color: #f4c430;
     }
-    .tool p {
-      color: #ccc;
-    }
-    .tool button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: gold;
-      color: #000;
+    .tool-card button {
+      margin-top: 1rem;
+      background: #f4c430;
+      color: #121212;
       border: none;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
+    }
+    .tool-card button:hover {
+      background: #e6b800;
     }
     footer {
+      background: #121212;
       text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: #aaa;
+      padding: 1rem;
       font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f4c430;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .hidden-page {
+      display: none;
+      padding: 2rem;
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Jade.ia</h1>
+    <div><strong>Cria.ai</strong></div>
+    <nav>
+      <a href="#tools">Ferramentas</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#politica">Política</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-    <a href="#politica">Política</a>
-  </nav>
+  <section class="hero">
+    <h1>Ferramentas Inteligentes para Criadores</h1>
+    <p>Descubra o poder da IA para transformar suas ideias em realidade.</p>
+  </section>
 
-  <main>
-    <section class="tools">
-      <div class="tool">
-        <h2>Gerador de Imagens com IA</h2>
-        <p>Crie imagens incríveis com um clique.</p>
-        <button onclick="window.open('https://app.runwayml.com/', '_blank')">Usar ferramenta</button>
-      </div>
+  <section class="tools" id="tools">
+    <div class="tool-card">
+      <h2>Gerador de Texto</h2>
+      <button onclick="window.open('https://app.neuroflash.com/', '_blank')">Usar ferramenta</button>
+    </div>
+    <div class="tool-card">
+      <h2>Gerador de Imagem</h2>
+      <button onclick="window.open('https://hotpot.ai/', '_blank')">Usar ferramenta</button>
+    </div>
+    <div class="tool-card">
+      <h2>Conversor de Voz</h2>
+      <button onclick="window.open('https://play.ht/', '_blank')">Usar ferramenta</button>
+    </div>
+  </section>
 
-      <div class="tool">
-        <h2>Criação de Textos com IA</h2>
-        <p>Gere conteúdos escritos com inteligência artificial.</p>
-        <button onclick="window.open('https://writesonic.com/', '_blank')">Usar ferramenta</button>
-      </div>
+  <section id="sobre" class="hidden-page">
+    <h2>Sobre Nós</h2>
+    <p>A Cria.ai é uma iniciativa da DIGITAL BUSSINESS que tem como missão oferecer soluções práticas e modernas utilizando inteligência artificial para facilitar a vida dos criadores de conteúdo.</p>
+  </section>
 
-      <div class="tool">
-        <h2>Conversor de Voz para Texto</h2>
-        <p>Transforme sua voz em texto em segundos.</p>
-        <button onclick="window.open('https://dictation.io/speech', '_blank')">Usar ferramenta</button>
-      </div>
-    </section>
-  </main>
+  <section id="contato" class="hidden-page">
+    <h2>Contato</h2>
+    <form action="mailto:digitalbussiness331@gmail.com" method="post" enctype="text/plain">
+      <label for="nome">Nome:</label><br />
+      <input type="text" id="nome" name="nome" required><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required><br />
+      <label for="assunto">Assunto:</label><br />
+      <input type="text" id="assunto" name="assunto"><br />
+      <label for="mensagem">Mensagem:</label><br />
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea><br /><br />
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <section id="politica" class="hidden-page">
+    <h2>Política de Privacidade</h2>
+    <p>Este site utiliza cookies e tecnologias de terceiros para fins de análise e monetização. Nenhuma informação pessoal é vendida ou compartilhada sem consentimento. Ao utilizar este site, você concorda com os nossos termos de uso e política de privacidade.</p>
+  </section>
 
   <footer>
-    <p>&copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.</p>
+    &copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.
   </footer>
-
-  <!-- Scripts Monetag -->
-  <script>
-    // Espaço reservado para scripts da Monetag
-  </script>
+  <button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 </body>
-
 </html>
