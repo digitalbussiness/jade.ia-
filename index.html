@@ -1,198 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Crie conteúdos com inteligência artificial com facilidade. Ferramentas Jade.ia para criadores." />
-    <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, Jade.ia, ferramentas IA" />
-    <meta name="author" content="DIGITAL BUSSINESS" />
-    <title>Jade.ia - Criação de Conteúdo com IA</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
 
-      body {
-        background: linear-gradient(135deg, #1a1a1a, #333);
-        color: #fff;
-        padding-bottom: 100px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crie conteúdos incríveis com Jade.ia, sua plataforma de inteligência artificial.">
+  <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, ferramentas de IA">
+  <meta name="author" content="DIGITAL BUSSINESS">
+  <title>Jade.ia - Criação com Inteligência Artificial</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a);
+      color: #fff;
+    }
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid gold;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: gold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #1a1a1a;
+      padding: 10px 0;
+    }
+    nav a {
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .tool {
+      background-color: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .tool:hover {
+      border-color: gold;
+      transform: scale(1.02);
+    }
+    .tool h2 {
+      color: #f0c000;
+    }
+    .tool p {
+      color: #ccc;
+    }
+    .tool button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: gold;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
 
-      header {
-        background: #000;
-        color: #ffd700;
-        padding: 1.5rem;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      }
+<body>
+  <header>
+    <h1>Jade.ia</h1>
+  </header>
 
-      header h1 {
-        font-size: 2.5rem;
-      }
+  <nav>
+    <a href="#">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+    <a href="#politica">Política</a>
+  </nav>
 
-      nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        background: #111;
-        padding: 1rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
+  <main>
+    <section class="tools">
+      <div class="tool">
+        <h2>Gerador de Imagens com IA</h2>
+        <p>Crie imagens incríveis com um clique.</p>
+        <button onclick="window.open('https://app.runwayml.com/', '_blank')">Usar ferramenta</button>
+      </div>
 
-      nav a {
-        color: #ccc;
-        text-decoration: none;
-        transition: 0.3s;
-      }
+      <div class="tool">
+        <h2>Criação de Textos com IA</h2>
+        <p>Gere conteúdos escritos com inteligência artificial.</p>
+        <button onclick="window.open('https://writesonic.com/', '_blank')">Usar ferramenta</button>
+      </div>
 
-      nav a:hover {
-        color: #ffd700;
-      }
-
-      main {
-        padding: 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
-
-      .tool {
-        background: #222;
-        padding: 1.5rem;
-        border-radius: 15px;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s;
-      }
-
-      .tool:hover {
-        transform: translateY(-5px);
-      }
-
-      .tool h2 {
-        color: #ffd700;
-        margin-bottom: 1rem;
-      }
-
-      .tool button {
-        background: #ffd700;
-        color: #000;
-        border: none;
-        padding: 0.8rem 1.2rem;
-        border-radius: 25px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      .tool button:hover {
-        background: #e6c200;
-      }
-
-      footer {
-        background: #000;
-        color: #aaa;
-        text-align: center;
-        padding: 1rem;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-
-      section.page {
-        display: none;
-        padding: 2rem;
-        color: #fff;
-      }
-
-      .active-page {
-        display: block;
-      }
-    </style>
-    <script>
-      function navigate(pageId) {
-        document.querySelectorAll("section.page").forEach(el => el.classList.remove("active-page"));
-        document.getElementById(pageId).classList.add("active-page");
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      function openTool(urls) {
-        const link = urls[Math.floor(Math.random() * urls.length)];
-        window.open(link, '_blank');
-      }
-    </script>
-  </head>
-  <body>
-    <header>
-      <h1>Jade.ia</h1>
-      <p>Soluções inteligentes para criadores de conteúdo</p>
-    </header>
-
-    <nav>
-      <a href="#" onclick="navigate('home')">Início</a>
-      <a href="#" onclick="navigate('sobre')">Sobre</a>
-      <a href="#" onclick="navigate('contato')">Contato</a>
-      <a href="#" onclick="navigate('politica')">Política</a>
-    </nav>
-
-    <section id="home" class="page active-page">
-      <main>
-        <div class="tool">
-          <h2>Gerador de Imagens IA</h2>
-          <button onclick="openTool(['https://example1.com', 'https://example2.com', 'https://example3.com'])">Acessar</button>
-        </div>
-        <div class="tool">
-          <h2>Criação de Textos</h2>
-          <button onclick="openTool(['https://textgen1.com', 'https://textgen2.com', 'https://textgen3.com'])">Acessar</button>
-        </div>
-        <div class="tool">
-          <h2>Geração de Voz</h2>
-          <button onclick="openTool(['https://voiceai1.com', 'https://voiceai2.com', 'https://voiceai3.com'])">Acessar</button>
-        </div>
-        <div class="tool">
-          <h2>Criação de Vídeos</h2>
-          <button onclick="openTool(['https://videoai1.com', 'https://videoai2.com', 'https://videoai3.com'])">Acessar</button>
-        </div>
-      </main>
+      <div class="tool">
+        <h2>Conversor de Voz para Texto</h2>
+        <p>Transforme sua voz em texto em segundos.</p>
+        <button onclick="window.open('https://dictation.io/speech', '_blank')">Usar ferramenta</button>
+      </div>
     </section>
+  </main>
 
-    <section id="sobre" class="page">
-      <h2>Sobre a Jade.ia</h2>
-      <p>Somos uma plataforma criada pela DIGITAL BUSSINESS com a missão de facilitar o acesso à criação de conteúdo com inteligência artificial. Acreditamos no poder da tecnologia para transformar ideias em realidade, de forma acessível, criativa e prática.</p>
-    </section>
+  <footer>
+    <p>&copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.</p>
+  </footer>
 
-    <section id="contato" class="page">
-      <h2>Entre em Contato</h2>
-      <form action="mailto:digitalbussiness331@gmail.com" method="post" enctype="text/plain">
-        <label for="nome">Nome:</label><br />
-        <input type="text" id="nome" name="nome" required /><br />
+  <!-- Scripts Monetag -->
+  <script>
+    // Espaço reservado para scripts da Monetag
+  </script>
+</body>
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" required /><br />
-
-        <label for="assunto">Assunto:</label><br />
-        <input type="text" id="assunto" name="assunto" /><br />
-
-        <label for="mensagem">Mensagem:</label><br />
-        <textarea id="mensagem" name="mensagem" required></textarea><br />
-
-        <input type="submit" value="Enviar" />
-      </form>
-    </section>
-
-    <section id="politica" class="page">
-      <h2>Política de Privacidade e Termos de Uso</h2>
-      <p>Este site respeita sua privacidade. Coletamos dados mínimos apenas para melhorar a experiência do usuário. Ao utilizar este site, você concorda com nossos termos e condições. Anúncios da Monetag podem ser exibidos e utilizam cookies para personalização de conteúdo.</p>
-    </section>
-
-    <footer>
-      © 2025 DIGITAL BUSSINESS. Todos os direitos reservados.
-    </footer>
-  </body>
 </html>
