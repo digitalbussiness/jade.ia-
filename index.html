@@ -1,152 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jade.ia - Inteligência Artificial para Criadores</title>
-  <meta name="description" content="Ferramentas de IA para criação de conteúdo - jade.ia" />
-  <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, ferramentas gratuitas, jade.ia" />
-  <link rel="icon" type="image/png" href="favicon.ico" />
+  <title>jade.ia - Inteligência Artificial para Criação de Conteúdo</title>
+  <meta name="description" content="Jade.ia é sua parceira de inteligência artificial para criar, transformar e explorar ideias com facilidade e criatividade." />
+  <meta name="keywords" content="inteligência artificial, criação de conteúdo, ferramentas IA, jade.ia, ai content tools" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #87CEEB, #FFC0CB);
+      color: #000000cc;
     }
-
     header {
-      background-color: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
+      background-color: #ffffffdd;
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      flex-wrap: wrap;
     }
-
     header h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #333;
+      font-size: 1.8rem;
+      color: #000000;
     }
-
     nav a {
-      margin-left: 1rem;
+      margin: 0 0.8rem;
       text-decoration: none;
-      color: #333;
+      color: #000000;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
-
     nav a:hover {
-      color: #0077ff;
+      color: #ff69b4;
     }
-
-    main {
-      max-width: 960px;
+    .container {
+      max-width: 1200px;
       margin: 2rem auto;
       padding: 1rem;
-    }
-
-    section {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    section h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      color: #222;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #0077ff, #00c6ff);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: linear-gradient(90deg, #005ecb, #00a2d4);
-    }
-
-    footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(10px);
+    }
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      background-color: #ffffffcc;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
       font-size: 0.9rem;
-      color: #555;
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>jade.ia</h1>
     <nav>
       <a href="#">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-      <a href="#politica">Política</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="politica.html">Política de Privacidade</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Crie com Inteligência</h2>
-      <p>Explore as ferramentas inteligentes da jade.ia e transforme suas ideias em realidade com apenas um clique.</p>
-      <a href="#ferramentas" class="btn">Explorar Ferramentas</a>
-    </section>
+  <section class="container animate-fade-in">
+    <h2 class="text-2xl md:text-3xl font-semibold text-black/80">Olá, eu sou a <span style="color:#ff69b4">Jade.ia</span> 👋</h2>
+    <p class="text-base md:text-lg text-black/60 mt-2">Sua parceira de inteligência artificial para criar, transformar e explorar ideias com facilidade e criatividade.</p>
+  </section>
 
-    <section id="ferramentas">
-      <h2>Ferramentas Inteligentes</h2>
-      <p>(Cada botão abaixo redireciona para uma das 3 opções embutidas por ferramenta)</p>
-      <ul>
-        <li><a class="btn" href="#">Gerador de Texto</a></li>
-        <li><a class="btn" href="#">Criação de Imagem</a></li>
-        <li><a class="btn" href="#">Conversor de Voz</a></li>
-        <li><a class="btn" href="#">Gerador de Vídeo</a></li>
-        <li><a class="btn" href="#">Analisador de Texto</a></li>
-        <li><a class="btn" href="#">Resumidor de Conteúdo</a></li>
-      </ul>
-    </section>
-
-    <section id="sobre">
-      <h2>Sobre Nós</h2>
-      <p>A jade.ia é um projeto da DIGITAL BUSSINESS, criado para oferecer ferramentas de inteligência artificial acessíveis e eficazes para criadores de conteúdo. Nosso objetivo é transformar ideias em resultados.</p>
-    </section>
-
-    <section id="contato">
-      <h2>Contato</h2>
-      <form action="mailto:digitalbussiness331@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="nome" placeholder="Seu nome" required><br><br>
-        <input type="text" name="assunto" placeholder="Assunto" required><br><br>
-        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea><br><br>
-        <button class="btn" type="submit">Enviar</button>
-      </form>
-    </section>
-
-    <section id="politica">
-      <h2>Política de Privacidade</h2>
-      <p>Respeitamos sua privacidade. Nenhuma informação é armazenada em nossos servidores. Todos os dados são processados diretamente pelas APIs utilizadas.</p>
-    </section>
-  </main>
+  <!-- Ferramentas e conteúdo principal continuam aqui -->
 
   <footer>
-    &copy; 2025 jade.ia — Um projeto DIGITAL BUSSINESS
+    &copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.
   </footer>
 </body>
-
 </html>
