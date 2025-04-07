@@ -4,61 +4,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="jade.ia - Ferramentas de IA para criação de conteúdo" />
-  <meta name="keywords" content="IA, inteligência artificial, ferramentas, conteúdo, criação" />
-  <meta name="author" content="DIGITAL BUSSINESS" />
-  <title>jade.ia - Ferramentas de IA para Criadores</title>
+  <title>jade.ia - Inteligência Artificial para Criadores</title>
+  <meta name="description" content="Ferramentas de IA para criação de conteúdo - jade.ia" />
+  <meta name="keywords" content="IA, inteligência artificial, criação de conteúdo, ferramentas gratuitas, jade.ia" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #e0e8f9, #f9e0f5);
-      color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+      color: #1a1a1a;
     }
+
     header {
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 24px;
-      color: #000;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
     }
+
     nav a {
-      margin: 0 10px;
+      margin-left: 1rem;
       text-decoration: none;
-      color: #000;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
+
+    nav a:hover {
+      color: #0077ff;
+    }
+
     main {
-      padding: 40px 20px;
-      text-align: center;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
     }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #222;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #0077ff, #00c6ff);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #005ecb, #00a2d4);
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #fff;
-      color: #000;
-      font-size: 14px;
-    }
-    .button {
-      padding: 10px 20px;
-      margin: 10px;
-      background-color: #d1dfff;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .button:hover {
-      background-color: #b5caff;
-    }
-    .section {
-      margin-top: 40px;
+      padding: 2rem 1rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
@@ -67,42 +96,56 @@
   <header>
     <h1>jade.ia</h1>
     <nav>
+      <a href="#">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
-      <a href="#politica">Política de Privacidade</a>
+      <a href="#politica">Política</a>
     </nav>
   </header>
+
   <main>
-    <h2>Ferramentas de Inteligência Artificial para Criadores de Conteúdo</h2>
-    <div class="section">
-      <button class="button" onclick="window.open('https://opcao1.com', '_blank')">Ferramenta 1</button>
-      <button class="button" onclick="window.open('https://opcao2.com', '_blank')">Ferramenta 2</button>
-      <button class="button" onclick="window.open('https://opcao3.com', '_blank')">Ferramenta 3</button>
-    </div>
+    <section>
+      <h2>Crie com Inteligência</h2>
+      <p>Explore as ferramentas inteligentes da jade.ia e transforme suas ideias em realidade com apenas um clique.</p>
+      <a href="#ferramentas" class="btn">Explorar Ferramentas</a>
+    </section>
 
-    <div class="section" id="sobre">
-      <h3>Sobre</h3>
-      <p>jade.ia é um projeto da DIGITAL BUSSINESS focado em oferecer ferramentas de inteligência artificial para facilitar a criação de conteúdo de maneira acessível, rápida e gratuita.</p>
-    </div>
+    <section id="ferramentas">
+      <h2>Ferramentas Inteligentes</h2>
+      <p>(Cada botão abaixo redireciona para uma das 3 opções embutidas por ferramenta)</p>
+      <ul>
+        <li><a class="btn" href="#">Gerador de Texto</a></li>
+        <li><a class="btn" href="#">Criação de Imagem</a></li>
+        <li><a class="btn" href="#">Conversor de Voz</a></li>
+        <li><a class="btn" href="#">Gerador de Vídeo</a></li>
+        <li><a class="btn" href="#">Analisador de Texto</a></li>
+        <li><a class="btn" href="#">Resumidor de Conteúdo</a></li>
+      </ul>
+    </section>
 
-    <div class="section" id="contato">
-      <h3>Contato</h3>
+    <section id="sobre">
+      <h2>Sobre Nós</h2>
+      <p>A jade.ia é um projeto da DIGITAL BUSSINESS, criado para oferecer ferramentas de inteligência artificial acessíveis e eficazes para criadores de conteúdo. Nosso objetivo é transformar ideias em resultados.</p>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
       <form action="mailto:digitalbussiness331@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu email" required />
-        <input type="text" name="assunto" placeholder="Assunto" required />
-        <textarea name="mensagem" placeholder="Mensagem" required></textarea>
-        <button type="submit" class="button">Enviar</button>
+        <input type="text" name="nome" placeholder="Seu nome" required><br><br>
+        <input type="text" name="assunto" placeholder="Assunto" required><br><br>
+        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea><br><br>
+        <button class="btn" type="submit">Enviar</button>
       </form>
-    </div>
+    </section>
 
-    <div class="section" id="politica">
-      <h3>Política de Privacidade</h3>
-      <p>Valorizamos sua privacidade. Nenhuma informação é compartilhada com terceiros. Para fins de publicidade, utilizamos scripts da Monetag.</p>
-    </div>
+    <section id="politica">
+      <h2>Política de Privacidade</h2>
+      <p>Respeitamos sua privacidade. Nenhuma informação é armazenada em nossos servidores. Todos os dados são processados diretamente pelas APIs utilizadas.</p>
+    </section>
   </main>
+
   <footer>
-    &copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.
+    &copy; 2025 jade.ia — Um projeto DIGITAL BUSSINESS
   </footer>
 </body>
 
