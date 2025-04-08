@@ -10,32 +10,39 @@
   <link rel="icon" href="/favicon.ico" />
   <style>
     :root {
-      --primary-color: #10101a;
-      --secondary-color: #ffffff;
-      --accent-color: #cccccc;
-      --button-color: linear-gradient(to right, #7f00ff, #e100ff);
-      --button-hover: linear-gradient(to right, #6a00cc, #c000cc);
+      --primary-color: #0f0c29;
+      --secondary-color: #302b63;
+      --highlight-color: #24243e;
+      --text-color: #ffffff;
+      --button-bg: linear-gradient(90deg, #8e2de2, #4a00e0);
+      --button-hover-bg: linear-gradient(90deg, #4a00e0, #8e2de2);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--primary-color);
-      color: var(--secondary-color);
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: var(--text-color);
     }
 
     header {
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-      padding: 2rem 1rem;
+      padding: 2rem;
       text-align: center;
+      background: var(--highlight-color);
     }
 
     header h1 {
-      margin: 0;
       font-size: 2.5rem;
-      background: linear-gradient(to right, #7f00ff, #e100ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.85;
     }
 
     nav {
@@ -47,43 +54,42 @@
     }
 
     nav a {
-      color: var(--accent-color);
+      color: #dcdcdc;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
     nav a:hover {
-      color: var(--secondary-color);
+      color: #fff;
     }
 
     main {
-      padding: 3rem 2rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
 
     .button {
-      background: var(--button-color);
+      background: var(--button-bg);
       border: none;
       padding: 1rem 2.5rem;
-      color: var(--secondary-color);
+      color: white;
       font-size: 1.1rem;
       cursor: pointer;
+      border-radius: 2rem;
       margin: 1rem;
-      border-radius: 10px;
-      transition: background 0.3s;
+      transition: background 0.4s;
     }
 
     .button:hover {
-      background: var(--button-hover);
+      background: var(--button-hover-bg);
     }
 
     footer {
-      background: #0a0a0f;
-      color: var(--accent-color);
+      background: #000;
+      color: #ccc;
       text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
+      padding: 1.5rem;
     }
   </style>
 </head>
