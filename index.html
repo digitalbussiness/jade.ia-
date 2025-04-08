@@ -10,13 +10,11 @@
   <link rel="icon" href="/favicon.ico" />
   <style>
     :root {
-      --primary-color: #e0e0f0;
-      --secondary-color: #101010;
-      --accent-color: #5e5e5e;
-      --button-color: #dcdcff;
-      --button-hover: #c0c0ff;
-      --header-gradient-start: #a0c4ff;
-      --header-gradient-end: #ffc6ff;
+      --primary-color: #10101a;
+      --secondary-color: #ffffff;
+      --accent-color: #cccccc;
+      --button-color: linear-gradient(to right, #7f00ff, #e100ff);
+      --button-hover: linear-gradient(to right, #6a00cc, #c000cc);
     }
 
     body {
@@ -27,66 +25,65 @@
     }
 
     header {
-      background: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
-      padding: 1.5rem;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      padding: 2rem 1rem;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
       font-size: 2.5rem;
-      font-weight: 700;
+      background: linear-gradient(to right, #7f00ff, #e100ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      gap: 2rem;
+      margin-top: 1.5rem;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: var(--secondary-color);
+      color: var(--accent-color);
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: var(--accent-color);
+      color: var(--secondary-color);
     }
 
     main {
-      padding: 2rem;
+      padding: 3rem 2rem;
       text-align: center;
     }
 
     .button {
-      background-color: var(--button-color);
+      background: var(--button-color);
       border: none;
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       color: var(--secondary-color);
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       margin: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
+      border-radius: 10px;
+      transition: background 0.3s;
     }
 
     .button:hover {
-      background-color: var(--button-hover);
+      background: var(--button-hover);
     }
 
     footer {
-      background: #1a1a1a;
+      background: #0a0a0f;
       color: var(--accent-color);
       text-align: center;
-      padding: 1.2rem;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
