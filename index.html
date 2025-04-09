@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,90 +9,100 @@
   <link rel="icon" href="/favicon.ico" />
   <style>
     :root {
-      --primary-color: #0f0c29;
-      --secondary-color: #302b63;
-      --highlight-color: #24243e;
+      --gradient-start: #0f2027;
+      --gradient-middle: #203a43;
+      --gradient-end: #2c5364;
+      --highlight-color: #e0c3fc;
       --text-color: #ffffff;
-      --button-bg: linear-gradient(90deg, #8e2de2, #4a00e0);
-      --button-hover-bg: linear-gradient(90deg, #4a00e0, #8e2de2);
-    }
-
-    * {
-      box-sizing: border-box;
+      --button-color: #ffffff;
+      --button-bg: #7f00ff;
+      --button-hover-bg: #e100ff;
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(to right, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
       color: var(--text-color);
     }
 
     header {
       padding: 2rem;
       text-align: center;
-      background: var(--highlight-color);
     }
 
     header h1 {
+      margin: 0;
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
     }
 
     header p {
       font-size: 1.1rem;
-      opacity: 0.85;
+      color: var(--highlight-color);
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
+      margin-top: 1rem;
     }
 
     nav a {
-      color: #dcdcdc;
+      color: var(--text-color);
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+      font-weight: bold;
     }
 
     nav a:hover {
-      color: #fff;
+      text-decoration: underline;
     }
 
     main {
-      padding: 3rem 1rem;
       text-align: center;
+      padding: 3rem 1rem;
     }
 
     .button {
-      background: var(--button-bg);
+      background-color: var(--button-bg);
+      color: var(--button-color);
       border: none;
-      padding: 1rem 2.5rem;
-      color: white;
+      padding: 1rem 2rem;
       font-size: 1.1rem;
+      border-radius: 12px;
       cursor: pointer;
-      border-radius: 2rem;
-      margin: 1rem;
-      transition: background 0.4s;
+      margin-top: 2rem;
+      transition: 0.3s ease;
     }
 
     .button:hover {
-      background: var(--button-hover-bg);
+      background-color: var(--button-hover-bg);
     }
 
     footer {
-      background: #000;
-      color: #ccc;
+      background-color: #00000044;
+      padding: 2rem;
       text-align: center;
-      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #cccccc;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .button {
+        width: 80%;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Jade.ia</h1>
@@ -109,14 +118,21 @@
   <main>
     <h2>Ferramentas Inteligentes</h2>
     <p>Escolha a ferramenta que deseja usar:</p>
-    <button class="button">Ferramenta 1</button>
-    <button class="button">Ferramenta 2</button>
-    <button class="button">Ferramenta 3</button>
+
+    <button class="button" onclick="location.href='editor-fotos.html'">✨ Toque Mágico (Editor de Fotos)</button>
+
+    <!-- Você pode adicionar mais ferramentas aqui -->
   </main>
 
   <footer>
-    <p>&copy; 2025 DIGITAL BUSSINESS. Todos os direitos reservados.</p>
+    <p>&copy; 2025 DIGITAL BUSINESS. Todos os direitos reservados.</p>
   </footer>
-</body>
 
+  <!-- Scripts da Monetag -->
+  <script async src="https://www.monetag.com/tag.js" data-zone="9177371"></script> <!-- Popunder -->
+  <script async src="https://www.monetag.com/tag.js" data-zone="9177372"></script> <!-- Push -->
+  <script async src="https://www.monetag.com/tag.js" data-zone="9177373"></script> <!-- Intersticial -->
+  <script async src="https://www.monetag.com/tag.js" data-zone="9177374"></script> <!-- Banner de vinheta -->
+  <script async src="https://www.monetag.com/tag.js" data-zone="9177375"></script> <!-- Notificações Push -->
+</body>
 </html>
