@@ -2,140 +2,132 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editor de Fotos - Jade.ia</title>
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1f1f2e, #2d2d44);
+      background: linear-gradient(120deg, #1c1c1c, #2e2e2e);
       color: white;
       text-align: center;
       padding: 20px;
     }
-
     h1 {
-      margin-top: 20px;
-      font-size: 2.5em;
+      margin-bottom: 10px;
     }
-
-    .editor-container {
-      margin-top: 30px;
+    input[type="file"] {
+      margin: 20px 0;
     }
-
-    .upload-btn-wrapper {
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-    }
-
-    .btn {
-      border: 2px solid #fff;
-      color: white;
-      background-color: transparent;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #fff;
-      color: #000;
-    }
-
-    .upload-btn-wrapper input[type=file] {
-      font-size: 100px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0;
-    }
-
-    .tools {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .tools button {
-      background-color: #333;
-      border: none;
-      color: white;
-      padding: 12px 20px;
+    .buttons button {
+      margin: 10px;
+      padding: 10px 20px;
       font-size: 1em;
-      border-radius: 8px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s;
+      background-color: #4CAF50;
+      color: white;
     }
-
-    .tools button:hover {
-      background-color: #555;
+    .buttons button:hover {
+      background-color: #45a049;
     }
-
-    img {
-      margin-top: 30px;
+    #result {
+      margin-top: 20px;
+    }
+    #result img {
       max-width: 90%;
       border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    .download-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .download-btn:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 
 <body>
   <h1>Editor de Fotos - Jade.ia</h1>
-  <p>Edite suas fotos com ferramentas inteligentes e gratuitas.</p>
+  <p>Transforme sua imagem com inteligência artificial gratuitamente!</p>
 
-  <div class="editor-container">
-    <div class="upload-btn-wrapper">
-      <button class="btn">Escolher Imagem</button>
-      <input type="file" id="imageInput" accept="image/*" />
-    </div>
+  <input type="file" id="imageInput" accept="image/*">
 
-    <div class="tools">
-      <button onclick="applyEffect('remove-bg')">Remover Fundo</button>
-      <button onclick="applyEffect('cartoon')">Estilo Cartoon</button>
-      <button onclick="applyEffect('painting')">Estilo Pintura</button>
-      <button onclick="applyEffect('portrait')">Modo Retrato</button>
-      <button onclick="applyEffect('enhance')">Melhorar Imagem</button>
-      <button onclick="applyEffect('saturation')">Ajustar Saturação</button>
-    </div>
+  <div class="buttons">
+    <button onclick="removeBackground()">Remover Fundo</button>
+    <button onclick="applyFilter('cartoon')">Cartoon</button>
+    <button onclick="applyFilter('portrait')">Modo Retrato</button>
+    <button onclick="applyFilter('oil-painting')">Estilo Pintura</button>
   </div>
 
-  <img id="result" src="" alt="Resultado" style="display:none;" />
+  <div id="result"></div>
+  <a id="downloadLink" class="download-btn" style="display:none" download="imagem_editada.png">Baixar Imagem</a>
 
   <script>
-    let selectedImage;
+    const removeBgKey = 'JBCrUqB9B8LCXcjJrpbgqaMZ';
+    const deepAiKey = 'ce8e1956-5330-4506-b3f4-a8f420f09d0f';
 
-    document.getElementById("imageInput").addEventListener("change", function (e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (event) {
-          selectedImage = event.target.result;
-          document.getElementById("result").src = selectedImage;
-          document.getElementById("result").style.display = "block";
-        };
-        reader.readAsDataURL(file);
-      }
-    });
+    function removeBackground() {
+      const file = document.getElementById('imageInput').files[0];
+      if (!file) return alert("Envie uma imagem primeiro.");
 
-    function applyEffect(effect) {
-      if (!selectedImage) {
-        alert("Escolha uma imagem primeiro!");
-        return;
-      }
+      const formData = new FormData();
+      formData.append("image_file", file);
+      formData.append("size", "auto");
 
-      // Simulando chamada a API gratuita fictícia
-      alert(`Aplicando efeito: ${effect}\n(API real será conectada aqui)`);
+      fetch("https://api.remove.bg/v1.0/removebg", {
+        method: "POST",
+        headers: {
+          "X-Api-Key": removeBgKey
+        },
+        body: formData
+      })
+        .then(res => res.blob())
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          document.getElementById('result').innerHTML = `<img src="${url}" id="editedImg">`;
+          document.getElementById('downloadLink').href = url;
+          document.getElementById('downloadLink').style.display = 'inline-block';
+        })
+        .catch(() => alert("Erro ao remover fundo."));
+    }
 
-      // Aqui entraria a chamada para APIs reais como remove.bg, DeepAI, etc.
-      // Exemplo com fetch():
-      // fetch('https://api.url.com/apply', { method: 'POST', body: ... })
+    function applyFilter(type) {
+      const file = document.getElementById('imageInput').files[0];
+      if (!file) return alert("Envie uma imagem primeiro.");
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      let api = "https://api.deepai.org/api/";
+      if (type === 'cartoon') api += "toonify";
+      else if (type === 'portrait') api += "portrait-generator";
+      else if (type === 'oil-painting') api += "oil-painting";
+
+      fetch(api, {
+        method: "POST",
+        headers: {
+          'Api-Key': deepAiKey
+        },
+        body: formData
+      })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('result').innerHTML = `<img src="${data.output_url}" id="editedImg">`;
+          document.getElementById('downloadLink').href = data.output_url;
+          document.getElementById('downloadLink').style.display = 'inline-block';
+        })
+        .catch(() => alert("Erro ao aplicar filtro."));
     }
   </script>
 </body>
