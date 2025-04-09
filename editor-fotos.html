@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor de Fotos - Jade.ia</title>
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1f1f2e, #2d2d44);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2.5em;
+    }
+
+    .editor-container {
+      margin-top: 30px;
+    }
+
+    .upload-btn-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .btn {
+      border: 2px solid #fff;
+      color: white;
+      background-color: transparent;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .upload-btn-wrapper input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+
+    .tools {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .tools button {
+      background-color: #333;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tools button:hover {
+      background-color: #555;
+    }
+
+    img {
+      margin-top: 30px;
+      max-width: 90%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Editor de Fotos - Jade.ia</h1>
+  <p>Edite suas fotos com ferramentas inteligentes e gratuitas.</p>
+
+  <div class="editor-container">
+    <div class="upload-btn-wrapper">
+      <button class="btn">Escolher Imagem</button>
+      <input type="file" id="imageInput" accept="image/*" />
+    </div>
+
+    <div class="tools">
+      <button onclick="applyEffect('remove-bg')">Remover Fundo</button>
+      <button onclick="applyEffect('cartoon')">Estilo Cartoon</button>
+      <button onclick="applyEffect('painting')">Estilo Pintura</button>
+      <button onclick="applyEffect('portrait')">Modo Retrato</button>
+      <button onclick="applyEffect('enhance')">Melhorar Imagem</button>
+      <button onclick="applyEffect('saturation')">Ajustar Saturação</button>
+    </div>
+  </div>
+
+  <img id="result" src="" alt="Resultado" style="display:none;" />
+
+  <script>
+    let selectedImage;
+
+    document.getElementById("imageInput").addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          selectedImage = event.target.result;
+          document.getElementById("result").src = selectedImage;
+          document.getElementById("result").style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function applyEffect(effect) {
+      if (!selectedImage) {
+        alert("Escolha uma imagem primeiro!");
+        return;
+      }
+
+      // Simulando chamada a API gratuita fictícia
+      alert(`Aplicando efeito: ${effect}\n(API real será conectada aqui)`);
+
+      // Aqui entraria a chamada para APIs reais como remove.bg, DeepAI, etc.
+      // Exemplo com fetch():
+      // fetch('https://api.url.com/apply', { method: 'POST', body: ... })
+    }
+  </script>
+</body>
+
+</html>
