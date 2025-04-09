@@ -2,132 +2,106 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Editor de Fotos - Jade.ia</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(120deg, #1c1c1c, #2e2e2e);
-      color: white;
+      background: linear-gradient(to bottom right, #f0f0f0, #dfe6e9);
+      color: #2d3436;
       text-align: center;
       padding: 20px;
     }
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
-    input[type="file"] {
-      margin: 20px 0;
+    .editor-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
-    .buttons button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-    }
-    .buttons button:hover {
-      background-color: #45a049;
-    }
-    #result {
-      margin-top: 20px;
-    }
-    #result img {
-      max-width: 90%;
+    input[type="file"], select, button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 10px #000;
+      border: 1px solid #ccc;
     }
-    .download-btn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    img {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
     }
-    .download-btn:hover {
-      background-color: #0056b3;
+    .output {
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
   <h1>Editor de Fotos - Jade.ia</h1>
-  <p>Transforme sua imagem com inteligência artificial gratuitamente!</p>
-
-  <input type="file" id="imageInput" accept="image/*">
-
-  <div class="buttons">
-    <button onclick="removeBackground()">Remover Fundo</button>
-    <button onclick="applyFilter('cartoon')">Cartoon</button>
-    <button onclick="applyFilter('portrait')">Modo Retrato</button>
-    <button onclick="applyFilter('oil-painting')">Estilo Pintura</button>
+  <div class="editor-container">
+    <input type="file" id="upload" accept="image/*" />
+    <select id="filter">
+      <option value="removebg">Remover Fundo</option>
+      <option value="toonify">Cartoon</option>
+      <option value="oil">Estilo Pintura</option>
+    </select>
+    <button onclick="processImage()">Aplicar</button>
+    <div class="output">
+      <img id="result" src="" alt="Resultado" style="display:none" />
+    </div>
   </div>
 
-  <div id="result"></div>
-  <a id="downloadLink" class="download-btn" style="display:none" download="imagem_editada.png">Baixar Imagem</a>
-
   <script>
-    const removeBgKey = 'JBCrUqB9B8LCXcjJrpbgqaMZ';
-    const deepAiKey = 'ce8e1956-5330-4506-b3f4-a8f420f09d0f';
-
-    function removeBackground() {
-      const file = document.getElementById('imageInput').files[0];
-      if (!file) return alert("Envie uma imagem primeiro.");
-
-      const formData = new FormData();
-      formData.append("image_file", file);
-      formData.append("size", "auto");
-
-      fetch("https://api.remove.bg/v1.0/removebg", {
-        method: "POST",
-        headers: {
-          "X-Api-Key": removeBgKey
-        },
-        body: formData
-      })
-        .then(res => res.blob())
-        .then(blob => {
-          const url = URL.createObjectURL(blob);
-          document.getElementById('result').innerHTML = `<img src="${url}" id="editedImg">`;
-          document.getElementById('downloadLink').href = url;
-          document.getElementById('downloadLink').style.display = 'inline-block';
-        })
-        .catch(() => alert("Erro ao remover fundo."));
-    }
-
-    function applyFilter(type) {
-      const file = document.getElementById('imageInput').files[0];
-      if (!file) return alert("Envie uma imagem primeiro.");
+    async function processImage() {
+      const fileInput = document.getElementById('upload');
+      const filter = document.getElementById('filter').value;
+      const image = fileInput.files[0];
+      if (!image) return alert("Envie uma imagem para editar.");
 
       const formData = new FormData();
-      formData.append("image", file);
+      formData.append("image", image);
 
-      let api = "https://api.deepai.org/api/";
-      if (type === 'cartoon') api += "toonify";
-      else if (type === 'portrait') api += "portrait-generator";
-      else if (type === 'oil-painting') api += "oil-painting";
+      let url = '', headers = {}, key = '';
 
-      fetch(api, {
+      if (filter === 'removebg') {
+        url = 'https://api.remove.bg/v1.0/removebg';
+        headers = { "X-Api-Key": "JBCrUqB9B8LCXcjJrpbgqaMZ" };
+      } else if (filter === 'toonify') {
+        url = 'https://api.deepai.org/api/toonify';
+        headers = { "api-key": "ce8e1956-5330-4506-b3f4-a8f420f09d0f" };
+        formData.append("image", image);
+      } else if (filter === 'oil') {
+        url = 'https://api.deepai.org/api/oil-painting';
+        headers = { "api-key": "ce8e1956-5330-4506-b3f4-a8f420f09d0f" };
+        formData.append("image", image);
+      }
+
+      const response = await fetch(url, {
         method: "POST",
-        headers: {
-          'Api-Key': deepAiKey
-        },
-        body: formData
-      })
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById('result').innerHTML = `<img src="${data.output_url}" id="editedImg">`;
-          document.getElementById('downloadLink').href = data.output_url;
-          document.getElementById('downloadLink').style.display = 'inline-block';
-        })
-        .catch(() => alert("Erro ao aplicar filtro."));
+        headers,
+        body: filter === 'removebg' ? formData : formData
+      });
+
+      const result = await response.json();
+      const imgElement = document.getElementById("result");
+
+      if (result.data && result.data.result_url) {
+        imgElement.src = result.data.result_url;
+        imgElement.style.display = "block";
+      } else if (result.output_url) {
+        imgElement.src = result.output_url;
+        imgElement.style.display = "block";
+      } else {
+        alert("Erro ao processar a imagem.");
+      }
     }
   </script>
 </body>
