@@ -1,139 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Editor de Fotos - Jade.ia</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Fotos - jade.ia</title>
   <style>
     body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0d1117;
-      color: #f0f0f0;
       text-align: center;
     }
     header {
-      background: linear-gradient(to right, #141e30, #243b55);
-      padding: 2rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      font-size: 2em;
     }
     main {
-      padding: 2rem;
-    }
-    .upload-section {
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: #161b22;
-      border-radius: 1rem;
-      max-width: 600px;
+      padding: 30px;
     }
     input[type="file"] {
-      margin-top: 1rem;
+      padding: 10px;
+      margin: 20px 0;
     }
-    .btn {
-      margin-top: 1rem;
-      padding: 1rem 2rem;
-      background-color: #2563eb;
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
       border: none;
-      border-radius: 0.5rem;
-      color: white;
+      margin: 10px;
       cursor: pointer;
-      font-size: 1rem;
     }
-    .btn:hover {
-      background-color: #1d4ed8;
-    }
-    .output {
-      margin-top: 2rem;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 1rem;
+    #result img {
+      margin-top: 20px;
+      max-width: 90%;
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Editor de Fotos - Jade.ia</h1>
-    <p>Remova fundo, aplique cartoon, retrato ou estilo pintura gratuitamente</p>
-  </header>
+  <header>Editor de Fotos Grátis</header>
   <main>
-    <div class="upload-section">
-      <h2>Escolha uma imagem:</h2>
-      <input type="file" id="imageInput" accept="image/*">
-
-      <div>
-        <button class="btn" onclick="removeBackground()">Remover Fundo</button>
-        <button class="btn" onclick="applyStyle('cartoon')">Cartoon</button>
-        <button class="btn" onclick="applyStyle('portrait')">Retrato</button>
-        <button class="btn" onclick="applyStyle('oil-painting')">Pintura</button>
-      </div>
+    <p>Envie sua imagem e escolha uma função abaixo:</p>
+    <input type="file" id="imageInput" accept="image/*" />
+    <div>
+      <button onclick="removeBackground()">Remover Fundo</button>
+      <button onclick="applyCartoon()">Cartoon</button>
+      <button onclick="applyPainting()">Estilo Pintura</button>
     </div>
-    <div class="output">
-      <h2>Resultado:</h2>
-      <div id="result"></div>
-    </div>
+    <div id="result"></div>
   </main>
 
   <script>
-    const removeBgAPI = "JBCrUqB9B8LCXcjJrpbgqaMZ";
-    const deepaiAPI = "ce8e1956-5330-4506-b3f4-a8f420f09d0f";
+    const removeBgKey = "JBCrUqB9B8LCXcjJrpbgqaMZ";
+    const deepAIKey = "ce8e1956-5330-4506-b3f4-a8f420f09d0f";
 
-    function getBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-      });
+    function getImageFile() {
+      const input = document.getElementById("imageInput");
+      return input.files[0];
     }
 
-    async function removeBackground() {
-      const input = document.getElementById('imageInput');
-      if (!input.files.length) return alert('Escolha uma imagem.');
-      const formData = new FormData();
-      formData.append("image_file", input.files[0]);
-      formData.append("size", "auto");
-
-      const res = await fetch("https://api.remove.bg/v1.0/removebg", {
-        method: "POST",
-        headers: { "X-Api-Key": removeBgAPI },
-        body: formData
-      });
-
-      const blob = await res.blob();
-      document.getElementById("result").innerHTML = `<img src="${URL.createObjectURL(blob)}">`;
+    function showResult(url) {
+      const result = document.getElementById("result");
+      result.innerHTML = `<img src="${url}" alt="Resultado" />`;
     }
 
-    async function applyStyle(style) {
-      const input = document.getElementById('imageInput');
-      if (!input.files.length) return alert('Escolha uma imagem.');
+    function removeBackground() {
+      const file = getImageFile();
+      if (!file) return alert("Selecione uma imagem primeiro.");
+
       const formData = new FormData();
-      formData.append("image", input.files[0]);
+      formData.append("image_file", file);
 
-      let styleName = '';
-      switch(style) {
-        case 'cartoon': styleName = 'cartoon-generator'; break;
-        case 'portrait': styleName = 'portrait-generator'; break;
-        case 'oil-painting': styleName = 'oil-painting'; break;
-      }
-
-      const res = await fetch(`https://api.deepai.org/api/${styleName}`, {
+      fetch("https://api.remove.bg/v1.0/removebg", {
         method: "POST",
-        headers: { 'Api-Key': deepaiAPI },
+        headers: {
+          "X-Api-Key": removeBgKey
+        },
         body: formData
-      });
+      })
+      .then(res => res.blob())
+      .then(blob => showResult(URL.createObjectURL(blob)))
+      .catch(err => alert("Erro ao remover fundo."));
+    }
 
-      const data = await res.json();
-      if (data.output_url) {
-        document.getElementById("result").innerHTML = `<img src="${data.output_url}">`;
-      } else {
-        alert("Erro ao aplicar estilo. Tente novamente.");
-      }
+    function applyCartoon() {
+      processWithDeepAI("https://api.deepai.org/api/toonify");
+    }
+
+    function applyPainting() {
+      processWithDeepAI("https://api.deepai.org/api/oil-painting");
+    }
+
+    function processWithDeepAI(url) {
+      const file = getImageFile();
+      if (!file) return alert("Selecione uma imagem primeiro.");
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "api-key": deepAIKey
+        },
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.output_url) {
+          showResult(data.output_url);
+        } else {
+          alert("Erro ao aplicar efeito.");
+        }
+      })
+      .catch(err => alert("Erro ao processar imagem."));
     }
   </script>
 </body>
